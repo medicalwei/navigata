@@ -119,7 +119,7 @@ $(function(){
   navigata();
   $(window).resize(resize);
   $(window).scroll(calcScroll);
-  $(window).touchmove(touchmove);
+  document.addEventListener("touchmove", touchmove, false);
   $("body>nav").click(reveal);
   $(window).click(unreveal);
 });
