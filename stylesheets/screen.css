@@ -1,0 +1,139 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 9, ../sass/screen.scss */
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  text-align: justify;
+  background: #9c4;
+  margin: 1em 0;
+  padding-bottom: 3em;
+  color: #333;
+}
+
+/* line 20, ../sass/screen.scss */
+a {
+  color: inherit;
+}
+
+/* line 30, ../sass/screen.scss */
+body > nav {
+  display: block;
+  background: #fff;
+  -webkit-box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.3);
+  padding: 0.5em 1em;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.8em;
+  -webkit-transition: height 0.2s ease;
+  -moz-transition: height 0.2s ease;
+  -o-transition: height 0.2s ease;
+  transition: height 0.2s ease;
+}
+/* line 40, ../sass/screen.scss */
+body > nav #navigata > .hide-in-mobile {
+  display: none;
+}
+
+/* line 45, ../sass/screen.scss */
+body > nav.reveal {
+  height: 20em;
+  max-height: 75%;
+  overflow: auto;
+}
+/* line 50, ../sass/screen.scss */
+body > nav.reveal > header p.title {
+  display: block;
+}
+/* line 54, ../sass/screen.scss */
+body > nav.reveal #navigata > .hide-in-mobile {
+  display: block;
+}
+
+/* line 59, ../sass/screen.scss */
+body > section {
+  display: block;
+  background: #fff;
+  -webkit-box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.5em 1em;
+  max-width: 30em;
+  margin-top: 1em;
+}
+
+/* line 69, ../sass/screen.scss */
+body > nav > header p.title {
+  font-size: 2em;
+  font-weight: 100;
+  margin: 0.5em 0;
+  padding-left: 10px;
+  display: none;
+}
+/* line 77, ../sass/screen.scss */
+body > nav > .nav a {
+  text-decoration: none;
+  display: block;
+  padding: 0.3em 0.5em;
+  line-height: 1.3em;
+  border-color: #333;
+  border-width: 0;
+  border-style: solid;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  -o-transition: background 0.5s ease;
+  transition: background 0.5s ease;
+}
+/* line 88, ../sass/screen.scss */
+body > nav > .nav a:hover {
+  background: #fff;
+}
+
+@media screen and (min-width: 560px) {
+  /* line 95, ../sass/screen.scss */
+  body {
+    font-size: 20px;
+    margin: 1em;
+  }
+}
+@media screen and (min-width: 1000px) {
+  /* line 101, ../sass/screen.scss */
+  body {
+    padding-bottom: 0;
+  }
+
+  /* line 105, ../sass/screen.scss */
+  body > nav {
+    background: rgba(255, 255, 255, 0.6);
+    left: 0;
+    right: inherit;
+    top: 0;
+    bottom: 0;
+    width: 240px;
+    height: inherit;
+    margin: 1em;
+    overflow: auto;
+  }
+  /* line 116, ../sass/screen.scss */
+  body > nav > header p.title {
+    display: block;
+  }
+  /* line 120, ../sass/screen.scss */
+  body > nav #navigata > .hide-in-mobile {
+    display: block;
+  }
+
+  /* line 125, ../sass/screen.scss */
+  body > section {
+    margin-left: 15em;
+  }
+}
