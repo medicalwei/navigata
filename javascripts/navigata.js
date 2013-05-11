@@ -52,8 +52,10 @@ var calcScroll = function(){
     if (contentBottom < 0){
       contentBottom = 0;
     }
+    var reverse = false;
     if (contentBottom > contentHeight){
       contentBottom = contentHeight;
+      reverse = true
     }
     var revealHeight = contentBottom - contentTop;
     var revealPercent = revealHeight / displayHeight;
@@ -61,7 +63,12 @@ var calcScroll = function(){
       currentSectionShown = $navlink;
       maxShownPercent = revealPercent;
     }
-    $navlink.css({borderLeftWidth: revealPercent*10 + 'px'});
+    if (reverse){
+      var backgroundPosition = revealPercent / 2;
+    } else {
+      var backgroundPosition = 1 - revealPercent / 2;
+    }
+    $navlink.css({backgroundPosition: 'left ' + backgroundPosition*100 + '%'});
   }
 
   if (!previousSectionShown || previousSectionShown !== currentSectionShown){
