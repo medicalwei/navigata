@@ -105,21 +105,11 @@ var unreveal = function(e){
   }
 }
 
-var previousScrollTop;
-var interval = function(){
-  var scrollTop = $(window).scrollTop();
-  if (scrollTop !== previousScrollTop){
-    calcScroll();
-    previousScrollTop = scrollTop;
-  }
-}
-
 $(function(){
   navigata();
   $(window).resize(resize);
-  // $(window).scroll(calcScroll);
-  // document.addEventListener("touchmove", touchmove, false);
-  setInterval(interval, 1000/60);
+  $(window).scroll(calcScroll);
+  document.addEventListener("touchmove", calcScroll, false);
   $("body>nav").click(reveal);
   $(window).click(unreveal);
 });
