@@ -105,10 +105,21 @@ var unreveal = function(e){
   }
 }
 
+var previousScrollTop;
+var touchmove = function(){
+  calcScroll();
+  var scrollTop = $(window).scrollTop();
+  if (scrollTop !== previousScrollTop){
+    setTimeout(touchmove, 1000/60);
+    previousScrollTop = scrollTop;
+  }
+}
+
 $(function(){
   navigata();
   $(window).resize(resize);
   $(window).scroll(calcScroll);
+  $(window).touchmove(touchmove);
   $("body>nav").click(reveal);
   $(window).click(unreveal);
 });
