@@ -106,11 +106,10 @@ var unreveal = function(e){
 }
 
 var previousScrollTop;
-var touchmove = function(){
-  calcScroll();
+var interval = function(){
   var scrollTop = $(window).scrollTop();
   if (scrollTop !== previousScrollTop){
-    setTimeout(touchmove, 1000/60);
+    calcScroll();
     previousScrollTop = scrollTop;
   }
 }
@@ -118,8 +117,9 @@ var touchmove = function(){
 $(function(){
   navigata();
   $(window).resize(resize);
-  $(window).scroll(calcScroll);
-  document.addEventListener("touchmove", touchmove, false);
+  // $(window).scroll(calcScroll);
+  // document.addEventListener("touchmove", touchmove, false);
+  setInterval(interval, 1000/60);
   $("body>nav").click(reveal);
   $(window).click(unreveal);
 });
