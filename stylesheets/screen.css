@@ -87,10 +87,10 @@ body > nav > .nav a {
   line-height: 1.3em;
   background-image: url("../images/indicator.png");
   background-repeat: no-repeat;
-  -webkit-transition: background-color 0.5s ease, background-position 0.1s ease;
-  -moz-transition: background-color 0.5s ease, background-position 0.1s ease;
-  -o-transition: background-color 0.5s ease, background-position 0.1s ease;
-  transition: background-color 0.5s ease, background-position 0.1s ease;
+  -webkit-transition: background-color 0.5s ease;
+  -moz-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
 }
 /* line 86, ../sass/screen.scss */
 body > nav > .nav a:hover {
