@@ -81,12 +81,11 @@ body>nav{
     line-height: 1.3em;
     background-image: url("../images/indicator.png");
     background-repeat: no-repeat;
-    /*
-    @include transition(background 0.5s ease);
+
+    @include transition(background-color 0.5s ease, background-image 0.1s ease);
     &:hover{
-      background: #fff;
+      background-color: #fff;
     }
-    */
   }
 }
 
