@@ -82,7 +82,7 @@ body>nav{
     background-image: url("../images/indicator.png");
     background-repeat: no-repeat;
 
-    @include transition(background-color 0.5s ease, background-image 0.1s ease);
+    @include transition(background-color 0.5s ease, background-position 0.1s ease);
     &:hover{
       background-color: #fff;
     }
