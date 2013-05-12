@@ -111,6 +111,6 @@ $(function(){
   $(window).scroll(calcScroll);
   document.addEventListener('touchmove', calcScroll, false);
   $("body>nav").click(reveal);
-  $(window).click(unreveal);
+  $("body").click(unreveal);
 });
 
