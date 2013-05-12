@@ -109,8 +109,8 @@ $(function(){
   navigata();
   $(window).resize(resize);
   $(window).scroll(calcScroll);
-  document.addEventListener('touchmove', calcScroll, false);
+  $(window).on('touchmove', calcScroll);
   $("body>nav").click(reveal);
-  $("body").click(unreveal);
+  $("body").on('click', ':not[#stuff]', unreveal); // stackoverflow
 });
 
