@@ -96,12 +96,15 @@ var reveal = function(e){
     e.stopPropagation();
     $nav.addClass("reveal");
   }
+  e.stopPropagation();
 }
 
 var unreveal = function(e){
   var $nav = $("body>nav");
   if($nav.css('right') === '0px' && $nav.hasClass("reveal")){
     $nav.removeClass("reveal");
+    e.preventDefault();
+    e.stopPropagation();
   }
 }
 
@@ -110,7 +113,7 @@ $(function(){
   $(window).resize(resize);
   $(window).scroll(calcScroll);
   $(window).on('touchmove', calcScroll);
-  $("body>nav").click(reveal);
-  $("body").on('click', ':not[#stuff]', unreveal); // stackoverflow
+  $("body>nav").on('click touchstart', reveal);
+  $("body").on('click touchstart', unreveal);
 });
 
