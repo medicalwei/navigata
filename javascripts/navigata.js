@@ -15,19 +15,14 @@ var navigata = function(){
                     .text(title)
                     .attr("href", "#"+hashtag)
                     .appendTo($navigata);
-    var sectionTop = $this.offset().top;
-    var sectionHeight = $this.outerHeight();
-    sections.push({section: this,
-                   navlink: navlink,
-                   top: sectionTop,
-                   height: sectionHeight});
+    sections.push({section: this, navlink: navlink});
   });
   calcScroll();
 };
 
 var previousSectionShown = null;
 var calcScroll = function(){
-  var scrollTop = $(window).scrollTop();
+  var scrollTop = window.pageYOffset || $(window).scrollTop();
   var windowHeight = $(window).height();
   var scrollBottom = scrollTop + windowHeight;
   var maxShownPercent = 0;
@@ -36,27 +31,30 @@ var calcScroll = function(){
     var the = sections[i];
     var $section = $(the.section);
     var $navlink = $(the.navlink);
-    var contentHeight = the.height;
-    var displayHeight = contentHeight;
-    if(the.height > windowHeight){
+    var sectionTop = $section.offset().top;
+    var sectionHeight = $section.outerHeight();
+    var displayHeight = sectionHeight;
+    if(sectionHeight > windowHeight){
       displayHeight = windowHeight;
     };
-    var contentTop = scrollTop - the.top;
-    var contentBottom = scrollBottom - the.top;
+    var contentTop = scrollTop - sectionTop;
+    var contentBottom = scrollBottom - sectionTop;
+
     if (contentTop < 0){
       contentTop = 0;
     }
-    if (contentTop > contentHeight){
-      contentTop = contentHeight;
+    if (contentTop > sectionHeight){
+      contentTop = sectionHeight;
     }
     if (contentBottom < 0){
       contentBottom = 0;
     }
     var reverse = false;
-    if (contentBottom > contentHeight){
-      contentBottom = contentHeight;
+    if (contentBottom > sectionHeight){
+      contentBottom = sectionHeight;
       reverse = true
     }
+
     var revealHeight = contentBottom - contentTop;
     var revealPercent = revealHeight / displayHeight;
     if (revealPercent > maxShownPercent){
@@ -78,11 +76,8 @@ var calcScroll = function(){
   }
 }
 
-var recalcTimer;
-
 var resize = function(){
-  clearTimeout(recalcTimer);
-  recalcTimer = setTimeout(navigata, 200);
+  calcScroll();
   $("nav").removeClass("reveal");
 }
 
